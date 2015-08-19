@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ActionBar</string>
+
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="search">Search</string>
+
+    <string name="show">Show bar</string>
+    <string name="hide">Hide bar</string>
+</resources>
