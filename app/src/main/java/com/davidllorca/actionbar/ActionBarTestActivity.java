@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ActionBarTestActivity extends Activity {
 
-    private ShareActionProvider mShareActioProvider;
+    private ShareActionProvider mShareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class ActionBarTestActivity extends Activity {
 
         // Set ActionBar for tab navigation
         final ActionBar actionBar = getActionBar();
+        // actionBar.setDisplayHomeAsUpEnabled(true); // Icon clickable
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Add first fragment
         Fragment firstFragment = new Fragment();
@@ -94,19 +95,19 @@ public class ActionBarTestActivity extends Activity {
         itemDelete.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         // Add provider
         MenuItem itemProvider = menu.findItem(R.id.share);
-        mShareActioProvider = (ShareActionProvider) itemProvider.getActionProvider();
+        mShareActionProvider = (ShareActionProvider) itemProvider.getActionProvider();
         setShareIntent();
         return true;
     }
 
     private void setShareIntent() {
-        if (mShareActioProvider != null) {
+        if (mShareActionProvider != null) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
             intent.setType("text/plain");
             String text = ((EditText) findViewById(R.id.editText)).getText().toString();
             intent.putExtra(Intent.EXTRA_TEXT, text);
-            mShareActioProvider.setShareIntent(intent);
+            mShareActionProvider.setShareIntent(intent);
         }
     }
 
